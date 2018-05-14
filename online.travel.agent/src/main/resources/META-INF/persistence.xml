@@ -7,7 +7,9 @@
 
 	<persistence-unit name="InMemH2DB" transaction-type="RESOURCE_LOCAL">
 
-		<!-- <class>com.globalmart.productcatalogue.model.entity.Product</class> -->
+		<class>online.travel.agent.model.dbo.HotelDBO</class>
+		<class>online.travel.agent.model.dbo.CountryDBO</class>
+		<class>online.travel.agent.model.dbo.CityDBO</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:globalmart;DB_CLOSE_DELAY=-1" />
