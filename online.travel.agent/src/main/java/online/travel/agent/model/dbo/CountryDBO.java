@@ -10,15 +10,15 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "Country")
+@Entity(name = "Country")
+@Table(name = "country")
 public class CountryDBO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String name;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "City")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "country")
 	private List<CityDBO> cities;
 
 	public CountryDBO() {

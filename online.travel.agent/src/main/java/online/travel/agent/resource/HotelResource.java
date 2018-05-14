@@ -107,4 +107,9 @@ public class HotelResource {
 		}
 		return response;
 	}
+	
+	@Path("/cities")
+	public CityResource cityResource(){
+		return 
+	}
 }

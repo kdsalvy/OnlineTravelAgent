@@ -26,7 +26,7 @@ public class HotelDBO {
 	private String contact;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "city_id")
 	private CityDBO city;
 
 	@Enumerated(EnumType.STRING)

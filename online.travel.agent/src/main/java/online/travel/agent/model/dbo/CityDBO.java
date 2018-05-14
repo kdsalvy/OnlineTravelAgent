@@ -9,21 +9,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "City")
+@Entity(name = "City")
+@Table(name = "city")
 public class CityDBO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String name;
-	private CountryDBO country;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "country_id")
+	private CountryDBO country;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "city")
 	private List<HotelDBO> hotels;
-	
+
 	public CityDBO() {
 	}
 
