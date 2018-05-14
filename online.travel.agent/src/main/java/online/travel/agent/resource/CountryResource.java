@@ -16,6 +16,6 @@ public class CountryResource {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response addCountry(Country country){
-			return null;
+		long id = countryService.addCountry(country);
 	}
 }
