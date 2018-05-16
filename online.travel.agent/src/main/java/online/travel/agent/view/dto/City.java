@@ -7,43 +7,43 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName("City")
 public class City {
-	@JsonProperty("Name")
-	private String name;
-	@JsonProperty("Country")
-	private Country country;
-	@JsonProperty("Hotels")
-	private List<Hotel> hotels;
+    @JsonProperty("Name")
+    private String name;
+    @JsonProperty("Country")
+    private String country;
+    @JsonProperty("Hotel")
+    private List<Hotel> hotels;
 
-	public City() {
-	}
+    public City() {
+    }
 
-	public City(String name, Country country, List<Hotel> hotels) {
-		this.name = name;
-		this.country = country;
-		this.hotels = hotels;
-	}
+    public City(String name, String country, List<Hotel> hotels) {
+	this.name = name;
+	this.country = country;
+	this.hotels = hotels;
+    }
 
-	public List<Hotel> getHotels() {
-		return hotels;
-	}
+    public String getName() {
+	return name;
+    }
 
-	public void setHotels(List<Hotel> hotels) {
-		this.hotels = hotels;
-	}
+    public void setName(String name) {
+	this.name = name;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getCountry() {
+	return country;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setCountry(String country) {
+	this.country = country;
+    }
 
-	public Country getCountry() {
-		return country;
-	}
+    public List<Hotel> getHotels() {
+	return hotels;
+    }
 
-	public void setCountry(Country country) {
-		this.country = country;
-	}
+    public void setHotels(List<Hotel> hotels) {
+	this.hotels = hotels;
+    }
 }

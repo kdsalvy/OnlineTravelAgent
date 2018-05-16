@@ -7,32 +7,42 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName("Country")
 public class Country {
-	@JsonProperty("Name")
-	private String name;
-	@JsonProperty("Cities")
-	private List<City> cities;
+    @JsonProperty("Id")
+    private Long id;
+    @JsonProperty("Name")
+    private String name;
+    @JsonProperty("City")
+    private List<City> cities;
 
-	public Country() {
-	}
-	
-	public Country(String name, List<City> cities) {
-		this.name = name;
-		this.cities = cities;
-	}
+    public Country() {
+    }
 
-	public String getName() {
-		return name;
-	}
+    public Country(String name, List<City> cities) {
+	this.name = name;
+	this.cities = cities;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+	return name;
+    }
 
-	public List<City> getCities() {
-		return cities;
-	}
+    public void setName(String name) {
+	this.name = name;
+    }
 
-	public void setCities(List<City> cities) {
-		this.cities = cities;
-	}
+    public Long getId() {
+	return id;
+    }
+
+    public void setId(Long id) {
+	this.id = id;
+    }
+
+    public List<City> getCities() {
+	return cities;
+    }
+
+    public void setCities(List<City> cities) {
+	this.cities = cities;
+    }
 }

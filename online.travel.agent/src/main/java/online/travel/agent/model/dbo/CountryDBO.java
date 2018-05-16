@@ -2,6 +2,8 @@ package online.travel.agent.model.dbo;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,45 +15,47 @@ import javax.persistence.Table;
 @Entity(name = "Country")
 @Table(name = "country")
 public class CountryDBO {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	private String name;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "country")
-	private List<CityDBO> cities;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(unique = true)
+    private String name;
 
-	public CountryDBO() {
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<CityDBO> cities;
 
-	}
+    public CountryDBO() {
 
-	public CountryDBO( String name, List<CityDBO> cities) {
-		this.name = name;
-		this.cities = cities;
-	}
+    }
 
-	public long getId() {
-		return id;
-	}
+    public CountryDBO(Long id, String name, List<CityDBO> cities) {
+	this.id = id;
+	this.name = name;
+	this.cities = cities;
+    }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    public Long getId() {
+	return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setId(Long id) {
+	this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+	return name;
+    }
 
-	public List<CityDBO> getCities() {
-		return cities;
-	}
+    public void setName(String name) {
+	this.name = name;
+    }
 
-	public void setCities(List<CityDBO> cities) {
-		this.cities = cities;
-	}
+    public List<CityDBO> getCities() {
+	return cities;
+    }
+
+    public void setCities(List<CityDBO> cities) {
+	this.cities = cities;
+    }
 
 }

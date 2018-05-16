@@ -15,57 +15,57 @@ import javax.persistence.Table;
 @Entity(name = "City")
 @Table(name = "city")
 public class CityDBO {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	private String name;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "country_id")
-	private CountryDBO country;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String name;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "city")
-	private List<HotelDBO> hotels;
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private CountryDBO country;
 
-	public CityDBO() {
-	}
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "city")
+    private List<HotelDBO> hotels;
 
-	public CityDBO(String name, CountryDBO country, List<HotelDBO> hotels) {
-		this.name = name;
-		this.country = country;
-		this.hotels = hotels;
-	}
+    public CityDBO() {
+    }
 
-	public long getId() {
-		return id;
-	}
+    public CityDBO(String name, CountryDBO country, List<HotelDBO> hotels) {
+	this.name = name;
+	this.country = country;
+	this.hotels = hotels;
+    }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    public long getId() {
+	return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setId(long id) {
+	this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+	return name;
+    }
 
-	public CountryDBO getCountry() {
-		return country;
-	}
+    public void setName(String name) {
+	this.name = name;
+    }
 
-	public void setCountry(CountryDBO country) {
-		this.country = country;
-	}
+    public CountryDBO getCountry() {
+	return country;
+    }
 
-	public List<HotelDBO> getHotels() {
-		return hotels;
-	}
+    public void setCountry(CountryDBO country) {
+	this.country = country;
+    }
 
-	public void setHotels(List<HotelDBO> hotels) {
-		this.hotels = hotels;
-	}
+    public List<HotelDBO> getHotels() {
+	return hotels;
+    }
+
+    public void setHotels(List<HotelDBO> hotels) {
+	this.hotels = hotels;
+    }
 
 }
