@@ -11,61 +11,62 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity(name = "City")
-@Table(name = "city")
+@Table(name = "city", uniqueConstraints = @UniqueConstraint(columnNames = { "name", "country_id" }))
 public class CityDBO {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String name;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "country_id")
-    private CountryDBO country;
+	@ManyToOne
+	@JoinColumn(name = "country_id")
+	private CountryDBO country;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "city")
-    private List<HotelDBO> hotels;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "city")
+	private List<HotelDBO> hotels;
 
-    public CityDBO() {
-    }
+	public CityDBO() {
+	}
 
-    public CityDBO(String name, CountryDBO country, List<HotelDBO> hotels) {
-	this.name = name;
-	this.country = country;
-	this.hotels = hotels;
-    }
+	public CityDBO(String name, CountryDBO country, List<HotelDBO> hotels) {
+		this.name = name;
+		this.country = country;
+		this.hotels = hotels;
+	}
 
-    public long getId() {
-	return id;
-    }
+	public long getId() {
+		return id;
+	}
 
-    public void setId(long id) {
-	this.id = id;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public String getName() {
-	return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-	this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public CountryDBO getCountry() {
-	return country;
-    }
+	public CountryDBO getCountry() {
+		return country;
+	}
 
-    public void setCountry(CountryDBO country) {
-	this.country = country;
-    }
+	public void setCountry(CountryDBO country) {
+		this.country = country;
+	}
 
-    public List<HotelDBO> getHotels() {
-	return hotels;
-    }
+	public List<HotelDBO> getHotels() {
+		return hotels;
+	}
 
-    public void setHotels(List<HotelDBO> hotels) {
-	this.hotels = hotels;
-    }
+	public void setHotels(List<HotelDBO> hotels) {
+		this.hotels = hotels;
+	}
 
 }

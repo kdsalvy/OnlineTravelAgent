@@ -5,36 +5,36 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName("Amenity")
 public class Amenity {
-    @JsonProperty("Name")
-    private String name;
-    @JsonProperty("Hotel")
-    private String hotelName;
+	@JsonProperty("Name")
+	private String name;
+	@JsonProperty("Hotel")
+	private String hotelName;
 
-    public Amenity() {
-    }
-    
-    public Amenity(String name) {
-	this.name = name;
-    }
+	public Amenity() {
+	}
 
-    public Amenity(String name, String hotelName) {
-	this.name = name;
-	this.hotelName = hotelName;
-    }
+	public Amenity(String name) {
+		this.name = name;
+	}
 
-    public String getName() {
-	return name;
-    }
+	public Amenity(String name, String hotelName) {
+		this.name = name;
+		this.hotelName = hotelName;
+	}
 
-    public void setName(String name) {
-	this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getHotelName() {
-	return hotelName;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setHotelName(String hotelName) {
-	this.hotelName = hotelName;
-    }
+	public String getHotelName() {
+		return hotelName;
+	}
+
+	public void setHotelName(String hotelName) {
+		this.hotelName = hotelName;
+	}
 }

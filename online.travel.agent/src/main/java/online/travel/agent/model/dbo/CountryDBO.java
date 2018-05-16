@@ -15,47 +15,47 @@ import javax.persistence.Table;
 @Entity(name = "Country")
 @Table(name = "country")
 public class CountryDBO {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(unique = true)
-    private String name;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Column(unique = true)
+	private String name;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<CityDBO> cities;
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<CityDBO> cities;
 
-    public CountryDBO() {
+	public CountryDBO() {
 
-    }
+	}
 
-    public CountryDBO(Long id, String name, List<CityDBO> cities) {
-	this.id = id;
-	this.name = name;
-	this.cities = cities;
-    }
+	public CountryDBO(Long id, String name, List<CityDBO> cities) {
+		this.id = id;
+		this.name = name;
+		this.cities = cities;
+	}
 
-    public Long getId() {
-	return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-	this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getName() {
-	return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-	this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public List<CityDBO> getCities() {
-	return cities;
-    }
+	public List<CityDBO> getCities() {
+		return cities;
+	}
 
-    public void setCities(List<CityDBO> cities) {
-	this.cities = cities;
-    }
+	public void setCities(List<CityDBO> cities) {
+		this.cities = cities;
+	}
 
 }
