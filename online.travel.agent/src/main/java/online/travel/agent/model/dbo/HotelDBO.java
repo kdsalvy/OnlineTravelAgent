@@ -2,7 +2,6 @@ package online.travel.agent.model.dbo;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -26,10 +25,9 @@ public class HotelDBO {
 	private String description;
 	private String address;
 	private String contact;
-	@Column(columnDefinition = "boolean default true")
-	private Boolean isActive = true;
+	private Boolean isActive;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "city_id")
 	private CityDBO city;
 

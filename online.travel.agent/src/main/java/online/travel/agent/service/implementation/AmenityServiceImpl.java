@@ -17,8 +17,8 @@ import online.travel.agent.view.dto.Amenity;
 
 public class AmenityServiceImpl implements AmenityService {
 
-	DatabaseManager<AmenityDBO> databaseManager = new DatabaseManagerOperation<>();
-	DatabaseManager<HotelDBO> hotelDBManager = new DatabaseManagerOperation<>();
+	static DatabaseManager<AmenityDBO> databaseManager = new DatabaseManagerOperation<>();
+	static DatabaseManager<HotelDBO> hotelDBManager = new DatabaseManagerOperation<>();
 
 	@Override
 	public long addAmenity(Amenity amenity) throws Exception {
@@ -26,7 +26,8 @@ public class AmenityServiceImpl implements AmenityService {
 		AmenityDBO dbo = null;
 		try {
 			entityManager.getTransaction().begin();
-			if (amenity.getHotelName() == null || "".equals(amenity.getHotelName())) {
+			dbo = DTOtoDBOConverter.convert(amenity);
+			/*if (amenity.getHotelName() == null || "".equals(amenity.getHotelName())) {
 				throw new Exception("No Hotel Name Provided");
 			}
 			List<HotelDBO> hotelDBOList = hotelDBManager.search("Name", amenity.getHotelName(), HotelDBO.class,
@@ -38,7 +39,7 @@ public class AmenityServiceImpl implements AmenityService {
 			List<AmenityDBO> amenityDBOList = hotelDBO.getAmenities();
 			if (amenityDBOList == null)
 				amenityDBOList = new ArrayList<>();
-			amenityDBOList.add(dbo);
+			amenityDBOList.add(dbo);*/
 			dbo = databaseManager.insert(dbo, entityManager);
 			entityManager.getTransaction().commit();
 		} catch (Exception ex) {

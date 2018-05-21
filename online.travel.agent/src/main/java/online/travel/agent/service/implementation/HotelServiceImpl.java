@@ -157,6 +157,23 @@ public class HotelServiceImpl implements HotelService {
 		return DBOtoDTOConverter.convert(hotelDBO);
 	}
 
+	@Override
+	public void addAmenityToHotel(Amenity amenity, String hotelName) {
+		EntityManager entityManager = DatabaseUtil.getEntityManager();
+		HotelDBO hotelDBO = null;
+		try {
+			/*entityManager.getTransaction().begin();
+			List<HotelDBO> dboList = databaseManager.search("name", hotelName, HotelDBO.class, entityManager);
+			if (dboList == null || dboList.isEmpty())
+				throw new Exception("No Hotels Found");
+			hotelDBO = dboList.get(0);
+			hotelDBO.getAmenities().add(A)
+			hotelDBO = updateHotelEntity(hotelDBO, hotel);*/
+		} finally {
+			entityManager.close();
+		}
+	}
+
 	private HotelDBO updateHotelEntity(HotelDBO hotelDBO, Hotel hotel) {
 		hotelDBO.setActive(hotel.isActive());
 		hotelDBO.setAddress(hotel.getAddress());
@@ -165,5 +182,4 @@ public class HotelServiceImpl implements HotelService {
 		hotelDBO.setName(hotel.getName());
 		return hotelDBO;
 	}
-
 }

@@ -19,4 +19,6 @@ public interface HotelService {
 	public boolean deleteAmenityFromHotel(String hotelName, String amenityName) throws Exception;
 
 	public Hotel updateHotel(Hotel hotel) throws Exception;
+
+	public void addAmenityToHotel(Amenity amenity, String hotelName);
 }

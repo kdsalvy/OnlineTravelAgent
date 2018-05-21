@@ -25,7 +25,7 @@ public class CityDBO {
 	@JoinColumn(name = "country_id")
 	private CountryDBO country;
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "city")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "city")
 	private List<HotelDBO> hotels;
 
 	public CityDBO() {

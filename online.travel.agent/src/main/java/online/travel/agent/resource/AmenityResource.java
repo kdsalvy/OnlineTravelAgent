@@ -27,7 +27,7 @@ public class AmenityResource {
 	private static AmenityService amenityService = new AmenityServiceImpl();
 
 	@POST
-	@Path("/add")
+	@Path("add")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response addAmenity(Amenity amenity) {
@@ -44,7 +44,7 @@ public class AmenityResource {
 	}
 
 	@GET
-	@Path("/get/{id}")
+	@Path("get/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getAmenity(@PathParam("id") int id) {
 		Response response = null;
@@ -66,7 +66,7 @@ public class AmenityResource {
 	}
 
 	@DELETE
-	@Path("/remove/{hotelName}/{id}")
+	@Path("remove/{hotelName}/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response deleteAmenity(@PathParam("id") int id) {
 		Response response = null;
@@ -88,7 +88,7 @@ public class AmenityResource {
 	}
 
 	@GET
-	@Path("/search")
+	@Path("search")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response searchAmenity(@QueryParam("key") String key, @QueryParam("value") String value) {
 		Response response = null;

@@ -163,4 +163,20 @@ public class HotelResource {
 		}
 		return response;
 	}
+
+	@POST
+	@Path("{hotelName}/add/amenity")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response addAmenityToHotel(@PathParam("hotelName") String hotelName, Amenity amenity) {
+		Response response = null;
+		try {
+			hotelService.addAmenityToHotel(amenity, hotelName);
+			response = Response.ok().build();
+		} catch (Exception ex) {
+			LOG.warn(ex);
+			response = Response.serverError().entity("Exception while adding amenity to hotel: " + ex.getMessage())
+					.build();
+		}
+		return response;
+	}
 }
